@@ -14,4 +14,4 @@ To run this project you will need:
     $ docker-compose up -d
     $ yarn watch
 
-After running this set of commands, without errors; you should be able to open `http://localhost:81/` and see `Hello World!!!` in the middle of the page.
+After running this set of commands, without errors; you should be able to open `http://localhost:81/` and see login page
