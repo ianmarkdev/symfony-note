@@ -1,3 +1,2 @@
-index:
-    path: /
-    controller: App\Controller\IndexController::index
+# Routes are defined in controllers using attributes
+# See: config/routes/annotations.yaml

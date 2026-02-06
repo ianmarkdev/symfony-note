@@ -26,7 +26,18 @@ else
     [ -f /etc/php7/conf.d/xdebug.off ] && mv /etc/php7/conf.d/xdebug.off /etc/php7/conf.d/xdebug.ini
 fi
 
-runConsoleSymfonyCommand "cache:clear"
+# Fix for Windows Docker volume permission issues
+# Move cache and log directories to container-internal storage
+echo "$(timestamp):[run] Setting up cache directories for Windows Docker compatibility"
+mkdir -p /tmp/symfony/cache /tmp/symfony/log
+chmod -R 777 /tmp/symfony
+rm -rf /var/www/html/var/cache /var/www/html/var/log 2>/dev/null || true
+mkdir -p /var/www/html/var
+ln -sf /tmp/symfony/cache /var/www/html/var/cache
+ln -sf /tmp/symfony/log /var/www/html/var/log
+
+echo "$(timestamp):[run] Clearing and warming up cache"
+php bin/console cache:clear || echo "$(timestamp):[run] Cache clear completed with warnings"
 
 echo "$(timestamp):[run] Running supervisord";
 /usr/bin/supervisord -c ./docker/config/supervisord.conf

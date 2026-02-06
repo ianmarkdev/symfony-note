@@ -5,14 +5,11 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './styles/app.scss';
 
-import { IndexPage } from "./pages/index/page";
-import { createRoot } from "react-dom/client";
+import Root from './Root';
 
-const rootNode = createRoot(
-    document.getElementById('app')
-);
+const rootNode = createRoot(document.getElementById('app'));
 
-rootNode.render(<IndexPage />,)
+rootNode.render(<Root />);

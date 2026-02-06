@@ -1,0 +1,41 @@
+export const theme = {
+    colors: {
+        primary: '#4A90D9',
+        primaryHover: '#3A7BC8',
+        secondary: '#6C757D',
+        success: '#28A745',
+        warning: '#FFC107',
+        danger: '#DC3545',
+        dangerHover: '#C82333',
+        background: '#F5F5F5',
+        card: '#FFFFFF',
+        text: '#333333',
+        textLight: '#666666',
+        textMuted: '#999999',
+        border: '#E0E0E0',
+        inputBorder: '#CED4DA',
+        inputFocus: '#4A90D9',
+    },
+    spacing: {
+        xs: '4px',
+        sm: '8px',
+        md: '16px',
+        lg: '24px',
+        xl: '32px',
+        xxl: '48px',
+    },
+    borderRadius: '8px',
+    borderRadiusSm: '4px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    boxShadowLg: '0 4px 16px rgba(0, 0, 0, 0.15)',
+    transition: '0.2s ease',
+    fontSizes: {
+        sm: '14px',
+        md: '16px',
+        lg: '18px',
+        xl: '24px',
+        xxl: '32px',
+    },
+};
+
+export type Theme = typeof theme;
